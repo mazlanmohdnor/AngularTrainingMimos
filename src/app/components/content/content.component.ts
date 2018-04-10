@@ -1,4 +1,3 @@
-import { TextstateService } from './../../services/textstate.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,9 +10,8 @@ export class ContentComponent implements OnInit {
   element = false;
   date = new Date();
   text: String;
-  isTruncate = true;
 
-  constructor(private textstate: TextstateService) {
+  constructor() {
     this.persons = [
       { name: 'name1', age: 20 },
       { name: 'name2', age: 20 },
@@ -22,12 +20,9 @@ export class ContentComponent implements OnInit {
     ];
   }
 
-  ngOnChanges() {
-    this.isTruncate = this.textstate.getChangeState();
-  }
+
   ngOnInit() {
     this.setText();
-    console.log('ngOnInit', this.isTruncate);
   }
 
   toggleElement() {
@@ -39,14 +34,5 @@ export class ContentComponent implements OnInit {
     this.text = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita, fugit fugiat nihil iste quam quia nesciunt, sunt voluptatum delectus sequi unde commodi, libero sint ullam sit obcaecati ex suscipit et?Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis eaque aperiam ipsam ea? Itaque commodi animi, excepturi id ratione dignissimos eveniet impedit rerum doloremque culpa minima, iure nam tempora ipsa.';
   }
 
-  readmore() {
-    this.isTruncate = this.textstate.getChangeState();
-
-  }
-
-  checkState() {
-    this.isTruncate = this.textstate.getChangeState();
-    console.log('this.isTruncate', this.isTruncate);
-  }
 
 }
