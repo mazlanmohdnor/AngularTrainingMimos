@@ -1,0 +1,34 @@
+<div class="card mt-3">
+  <div class="card-header">
+    Form
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Reactive Forms</h5>
+    <form [formGroup]="personForm">
+
+      <div class="form-group row">
+
+        <label for="example-text-input" class="col-2 col-form-label">Name</label>
+        <div class="col-10">
+
+          <input class="form-control" type="text" formControlName="name">
+          <div class="alert alert-danger mt-2" role="alert" *ngIf="personForm.controls.name.invalid">
+            Name is required
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Age</label>
+        <div class="col-4">
+          <input class="form-control" type="number" formControlName="age">
+        </div>
+      </div>
+
+      <pre>{{personForm.value|json}}</pre>
+      <pre>{{personForm.status|json}}</pre>
+      <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+      <button (click)="onReset()" class="btn btn-danger">Reset</button>
+    </form>
+  </div>
+</div>

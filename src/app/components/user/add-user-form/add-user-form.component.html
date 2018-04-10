@@ -1,0 +1,40 @@
+<div class="card mt-3">
+  <div class="card-header">
+    Service (POST)
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Reactive Forms (Service)</h5>
+    <form [formGroup]="userForm">
+
+      <div class="form-group row">
+
+        <label for="example-text-input" class="col-2 col-form-label">Name</label>
+        <div class="col-4">
+
+          <input class="form-control" type="text" formControlName="name">
+
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Username</label>
+        <div class="col-4">
+          <input class="form-control" type="text" formControlName="username">
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Email</label>
+        <div class="col-4">
+          <input class="form-control" type="text" formControlName="email">
+        </div>
+      </div>
+
+      <pre>{{userForm.value|json}}</pre>
+      <pre>{{userForm.status|json}}</pre>
+      <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
+      <button (click)="reset()" class="btn btn-danger">Reset</button>
+    </form>
+  </div>
+</div>

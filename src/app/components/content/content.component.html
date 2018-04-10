@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card-header">
+    Directive *ngIf
+  </div>
+  <div class="card-body">
+    <div class="alert alert-danger" *ngIf="!element" role="alert">This is a primary {{element}} </div>
+    <div class="alert alert-success" *ngIf="element" role="alert">This is a primary {{element}} </div>
+    <button type="button" (click)="toggleElement()" class="btn btn-primary">Toggle</button>
+  </div>
+</div>
+
+<div class="card mt-3">
+  <div class="card-header">
+    Directive *ngFor
+  </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let person of persons"> Name: {{person.name}}, Age: {{person.age}}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card mt-3">
+  <div class="card-header">
+    Pipes
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">date | date:'d/M/y'</h5>
+    Old Date: {{date}}
+    <br> New Date: {{date| date:'d/M/y'}}
+    <br>
+    <h5 class="card-title">text| truncateText:150:'...'</h5>
+    Text: <br>
+    {{text| truncateText:1500:'...'}}
+    isTruncated? {{isTruncate}}
+    <a href="#" (click)="readmore()" *ngIf="isTruncate" >Read Mode</a>
+
+  </div>
+</div>
